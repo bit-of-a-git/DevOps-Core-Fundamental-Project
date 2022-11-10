@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+{% block body %}
+<h2> Add a New Book </h2>
+<br>
+<div class='form'>
+            <form method='POST' action=''>
+                {{ form.hidden_tag() }}
+                {{ form.book_title.label }} {{ form.book_title }}
+                {{ form.author.label }} {{ form.author }}
+                <br>
+                {{ form.submit }}
+            {{ message }}
+	    </form>
+</div>
+{% endblock body %}
