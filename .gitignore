@@ -172,6 +172,7 @@ dmypy.json
  
 # Cython debug symbols
 cython_debug/
+*.db
 ERD for Library-Book Idea.txt
 Project.txt
 application/templates/books.html
