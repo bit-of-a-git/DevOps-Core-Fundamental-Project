@@ -9,6 +9,7 @@ class AddAuthor(FlaskForm):
 class AddBook(FlaskForm):
     book_title = StringField("Book title:", validators=[DataRequired(message="Book title cannot be left blank.")])
     author = SelectField("Add to author:", choices=[], validators=[DataRequired(message="You must add an author first.")])
+    category = SelectField("Category:", choices=[])
     submit = SubmitField("Add Book")
 
 class UpdateBook(FlaskForm):

@@ -60,7 +60,6 @@ def update_book(bid):
 def delete_book(bid):
     book = Book.query.filter_by(id=bid).first()
     # Probably delete below
-    # options = question.options
     db.session.delete(book)
     db.session.commit()
     return redirect(url_for('view_books'))
