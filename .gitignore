@@ -174,3 +174,4 @@ dmypy.json
 cython_debug/
 ERD for Library-Book Idea.txt
 Project.txt
+application/templates/books.html
