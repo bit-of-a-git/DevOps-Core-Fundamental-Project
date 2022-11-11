@@ -4,6 +4,11 @@
 {% for author in authors %}
 <h4>{{author.author_name}}</h4>
 {% for book in author.books %}
+{{book.book_title}}
+<!-- Maybe get rid of the below section-->
+<a href="{{ url_for('book', bid=book.id) }}">{{book.book_title}}</a> | 
+<a href="{{ url_for('update_book', bid=book.id) }}"> Update </a> |
+<a href="{{ url_for('delete_book', bid=book.id) }}"> Delete </a><br>
 {% endfor %}
 {% endfor %}
 <br>
