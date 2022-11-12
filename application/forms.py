@@ -9,7 +9,8 @@ class AddAuthor(FlaskForm):
 class AddBook(FlaskForm):
     book_title = StringField("Book title:", validators=[DataRequired(message="Book title cannot be left blank.")])
     author = SelectField("Add to author:", choices=[], validators=[DataRequired(message="You must add an author first.")])
-    category = SelectField("Category:", choices=[])
+    # This seems to be working, just need to fiddle around with it.
+    category = SelectField("Category:", choices=[("1", "Action"), ("2", "Adventure")])
     submit = SubmitField("Add Book")
 
 class UpdateBook(FlaskForm):
@@ -17,3 +18,4 @@ class UpdateBook(FlaskForm):
     # after this I will make it so it can be marked unavailable
     book_title = StringField('Book title', validators=[DataRequired(message="Book title cannot be left blank.")])
     submit = SubmitField('Update Book')
+    category = SelectField("Category:", choices=[])
