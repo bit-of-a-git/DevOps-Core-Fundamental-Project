@@ -35,9 +35,18 @@ def add_book():
         title = form.book_title.data
         author_id = form.author.data
         category_id = form.category.data
-        book = Book(book_title = title, author_id = author_id, category_id = category_id)
-        db.session.add(book)
-        db.session.commit()
+        # value = dict(form.category.choices).get(form.category.data)
+        # cat_name = value
+        # Checks if the book already exists in database
+        duplicate = Book.query.filter_by(author_id=author_id, book_title=title).first()
+        # If it doesn't, the book is added
+        if not duplicate:
+            book = Book(book_title = title, author_id = author_id, category_id = category_id)
+            db.session.add(book)
+            db.session.commit()
+        # This part may need to be changed, but the basic functionality works
+        else:
+            return f"That book already exists in the database."
     return render_template('add_book.html', form=form)
 
 @app.route('/view-books', methods=['GET'])
