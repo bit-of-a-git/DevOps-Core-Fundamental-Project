@@ -1,6 +1,6 @@
 from application import app, db
 from application.forms import AddAuthor, AddBook, UpdateBook
-from application.models import Author, Book
+from application.models import Author, Book, Category
 from flask import request, render_template, redirect, url_for
 
 @app.route('/')
@@ -13,9 +13,16 @@ def add_author():
     form = AddAuthor()
     if request.method == 'POST':
         name = form.author_name.data
-        author = Author(author_name = name)
-        db.session.add(author)
-        db.session.commit()
+        # Checks if author already exists in database
+        duplicate = Author.query.filter_by(author_name=name).first()
+        # If they don't, the author is added
+        if not duplicate:
+            author = Author(author_name = name)
+            db.session.add(author)
+            db.session.commit()
+        # This part may need to be changed, but the basic functionality works
+        else:
+            return f"That author already exists in the database."
     return render_template('add_author.html', form=form)
 
 @app.route('/add-book', methods=['GET', 'POST'])
@@ -27,7 +34,8 @@ def add_book():
     if request.method == 'POST':
         title = form.book_title.data
         author_id = form.author.data
-        book = Book(book_title = title, author_id = author_id)
+        category_id = form.category.data
+        book = Book(book_title = title, author_id = author_id, category_id = category_id)
         db.session.add(book)
         db.session.commit()
     return render_template('add_book.html', form=form)
@@ -47,10 +55,13 @@ def book(bid):
 @app.route('/update-book/<int:bid>', methods=['GET','POST'])
 def update_book(bid):
     form = UpdateBook()
+    categories = Category.query.all()
     if request.method == 'POST':
         title = form.book_title.data
+        # Category.id = form.category.data
         book = Book.query.filter_by(id=bid).first()
-        book.book_title= title
+        book.book_title = title
+        # book.category = Category
         db.session.commit()
         # # Not sure whether to redirect or not
         # return redirect(url_for('home'))
@@ -63,3 +74,8 @@ def delete_book(bid):
     db.session.delete(book)
     db.session.commit()
     return redirect(url_for('view_books'))
+
+@app.route('/view-authors', methods=['GET'])
+def view_authors():
+    authors = Author.query.all()
+    return render_template('view_authors.html', authors=authors)
