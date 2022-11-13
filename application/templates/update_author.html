@@ -1,7 +1,8 @@
 {% extends 'main.html' %}
 {% block body %}
 <h2>Update Author</h2>
-<br>
+Updating: {{author.author_name}}
+<br><br>
 <div class='form'>
             <form method='POST' action=''>
                 {{ form.hidden_tag() }}
