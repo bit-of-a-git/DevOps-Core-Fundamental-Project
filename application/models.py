@@ -14,5 +14,5 @@ class Book(db.Model):
 
 class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    cat_name = db.Column(db.String)
+    cat_name = db.Column(db.String(50))
     books = db.relationship("Book", backref="category")
