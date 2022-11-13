@@ -80,12 +80,11 @@ def update_book(bid):
         category_id = form.category.data
         available = form.available.data
         book.book_title = title
-        book.category.id = category_id
+        book.category_id = category_id
         book.available = available
         db.session.add(book)
         db.session.commit()
-        # # Not sure whether to redirect or not
-        # return redirect(url_for('home'))
+        return redirect(url_for('view_books'))
     return render_template('update_book.html', form=form, book=book)
 
 
