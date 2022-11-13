@@ -77,9 +77,11 @@ def update_book(bid):
     if request.method == 'POST':
         title = form.book_title.data
         category_id = form.category.data
+        available = form.available.data
         book = Book.query.filter_by(id=bid).first()
         book.book_title = title
         book.category.id = category_id
+        book.available = available
         db.session.add(book)
         db.session.commit()
         # # Not sure whether to redirect or not
