@@ -71,6 +71,7 @@ def book(bid):
 @app.route('/update-book/<int:bid>', methods=['GET','POST'])
 def update_book(bid):
     form = UpdateBook()
+    book = Book.query.filter_by(id=bid).first()
     categories = Category.query.all()
     for category in categories:
         form.category.choices.append((category.id, category.cat_name))
@@ -78,7 +79,6 @@ def update_book(bid):
         title = form.book_title.data
         category_id = form.category.data
         available = form.available.data
-        book = Book.query.filter_by(id=bid).first()
         book.book_title = title
         book.category.id = category_id
         book.available = available
@@ -86,7 +86,7 @@ def update_book(bid):
         db.session.commit()
         # # Not sure whether to redirect or not
         # return redirect(url_for('home'))
-    return render_template('update_book.html', form=form)
+    return render_template('update_book.html', form=form, book=book)
 
 
 @app.route('/delete-book/<int:bid>')
@@ -106,15 +106,15 @@ def view_authors():
 @app.route('/update-author/<int:aid>', methods=['GET','POST'])
 def update_author(aid):
     form = UpdateAuthor()
+    author = Author.query.filter_by(id=aid).first()
     if request.method == 'POST':
         name = form.author_name.data
-        author = Author.query.filter_by(id=aid).first()
         author.author_name = name
         db.session.add(author)
         db.session.commit()
         # # Not sure whether to redirect or not
         # return redirect(url_for('home'))
-    return render_template('update_author.html', form=form)
+    return render_template('update_author.html', form=form, author=author)
 
 
 @app.route('/delete-author/<int:aid>')

@@ -24,4 +24,4 @@ class UpdateAuthor(FlaskForm):
     # Just trying to get changing the name working for now
     # after this I will make it so it can be marked unavailable
     author_name = StringField('New name:', validators=[DataRequired(message="Author name cannot be left blank.")])
-    submit = SubmitField('Update Book')
+    submit = SubmitField('Update Author')

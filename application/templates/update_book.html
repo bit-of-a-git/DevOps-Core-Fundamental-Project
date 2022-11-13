@@ -1,7 +1,9 @@
 {% extends 'main.html' %}
 {% block body %}
 <h2>Update Book</h2>
-<br>
+Updating: : {{book.book_title}}
+
+<br><br>
 <div class='form'>
             <form method='POST' action=''>
                 {{ form.hidden_tag() }}
