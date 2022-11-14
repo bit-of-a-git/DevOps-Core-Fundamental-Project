@@ -15,7 +15,7 @@ class AddBook(FlaskForm):
 class UpdateBook(FlaskForm):
     # Just trying to get changing the name working for now
     # after this I will make it so it can be marked unavailable
-    book_title = StringField('New title', validators=[DataRequired(message="Book title cannot be left blank.")])
+    book_title = StringField('New title')
     available = BooleanField("Currently available?", default=True)
     submit = SubmitField('Update Book')
     category = SelectField("Category:", choices=[])
@@ -23,5 +23,5 @@ class UpdateBook(FlaskForm):
 class UpdateAuthor(FlaskForm):
     # Just trying to get changing the name working for now
     # after this I will make it so it can be marked unavailable
-    author_name = StringField('New name:', validators=[DataRequired(message="Author name cannot be left blank.")])
+    author_name = StringField('New name:')
     submit = SubmitField('Update Author')
