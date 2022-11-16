@@ -23,6 +23,18 @@ I researched and thought quite a bit about what I could base my project on. Even
 
 ## Trello Board
 
+I used a Trello Kanban board for project tracking, using MOSCOW prioritisation for this. I wrote tasks, put user stories in the description, and then determined the importance of the various tasks.
+
+![MOSCOW](https://online.visual-paradigm.com/repository/images/16fef711-2669-4444-9320-5abe23b3acd8.png)
+
+Below you can see the initial state of the board.
+
+![1st Trello Board](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/feature/Trello%20Board2.png) 
+
+This is a recent board, after the MVP was achieved.
+
+![2nd Trello Board](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/feature/Trello%20Board1.png) 
+
 ## Relational database
 
 I thought about what relationships there could be between the entities involved with books, and I decided to start by modelling the author to book relationship, which is essentially one to many. These two tables satisfied the requirements for the MVP. I tested this using just Python, Flask, SQLite, and SQLAlchemy before I added any additional functionality or tables. Next I added a categories table, which relates to books in a one to many relationship.
@@ -40,6 +52,8 @@ Next I added a category table, which has a one to many relationship to books. Th
 In later iterations I may add other tables, for example a "branches" table so that this app can track various branches of a library. I may also add associative tables for many to many relationships. For example, two authors can collaborate on books, and various books can fit into several categories. For the scope of this project however, one to many relationships are suitable.
 
 ## Risk Assessment
+
+![Risk Assessment](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/feature/Risk%20Assessment.png)
 
 ## Testing
 

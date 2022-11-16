@@ -13,15 +13,11 @@ class AddBook(FlaskForm):
     submit = SubmitField("Add Book")
 
 class UpdateBook(FlaskForm):
-    # Just trying to get changing the name working for now
-    # after this I will make it so it can be marked unavailable
     book_title = StringField('New title')
     available = BooleanField("Currently available?", default=True)
     submit = SubmitField('Update Book')
     category = SelectField("Category:", choices=[])
 
 class UpdateAuthor(FlaskForm):
-    # Just trying to get changing the name working for now
-    # after this I will make it so it can be marked unavailable
     author_name = StringField('New name:')
     submit = SubmitField('Update Author')
