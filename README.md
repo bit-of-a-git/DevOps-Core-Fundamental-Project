@@ -1,4 +1,4 @@
-# QA-DevOps-Core-Fundamental-Project
+# QA-DevOps-Core-Fundamental-Project - David O' Connor
 
 This library management app was built for an assignment for QA. It allows librarians to add books and update/delete them when required. It also allows users to view what books are in the library.
 
