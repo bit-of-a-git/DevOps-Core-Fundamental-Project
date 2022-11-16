@@ -177,3 +177,6 @@ Project.txt
 application/templates/books.html
 *.db
 application/database.db
+projectbrief.txt
+whattodo.txt
+application/tests/test_app.py

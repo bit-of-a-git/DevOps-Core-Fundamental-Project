@@ -22,6 +22,7 @@ def add_author():
             author = Author(author_name = name)
             db.session.add(author)
             db.session.commit()
+            return redirect(url_for('add_book'))
         # This part may need to be changed, but the basic functionality works
         else:
             return f"That author already exists in the database."
@@ -61,13 +62,6 @@ def view_books():
     return render_template('view_books.html', authors=authors, books=books)
 
 
-@app.route('/book-<int:bid>')
-def book(bid):
-    book = Book.query.filter_by(id=bid).first()
-    maxid = Book.query.order_by(Book.id.desc()).first().id
-    return render_template('books.html', book=book, maxid=maxid)
-
-
 @app.route('/update-book/<int:bid>', methods=['GET','POST'])
 def update_book(bid):
     form = UpdateBook()
@@ -79,13 +73,14 @@ def update_book(bid):
         title = form.book_title.data
         category_id = form.category.data
         available = form.available.data
-        book.book_title = title
-        book.category.id = category_id
+        # If title is left blank then it is not updated.
+        if title:
+            book.book_title = title
+        book.category_id = category_id
         book.available = available
         db.session.add(book)
         db.session.commit()
-        # # Not sure whether to redirect or not
-        # return redirect(url_for('home'))
+        return redirect(url_for('view_books'))
     return render_template('update_book.html', form=form, book=book)
 
 
@@ -100,6 +95,7 @@ def delete_book(bid):
 @app.route('/view-authors', methods=['GET'])
 def view_authors():
     authors = Author.query.all()
+    authors.sort(key=lambda x: x.author_name)
     return render_template('view_authors.html', authors=authors)
 
 
@@ -108,21 +104,29 @@ def update_author(aid):
     form = UpdateAuthor()
     author = Author.query.filter_by(id=aid).first()
     if request.method == 'POST':
-        name = form.author_name.data
-        author.author_name = name
-        db.session.add(author)
-        db.session.commit()
-        # # Not sure whether to redirect or not
-        # return redirect(url_for('home'))
+        # If author name is left blank, it is not updated.
+        if form.author_name.data:
+            name = form.author_name.data
+            author.author_name = name
+            db.session.add(author)
+            db.session.commit()
+        return redirect(url_for('view_authors'))
     return render_template('update_author.html', form=form, author=author)
 
 
 @app.route('/delete-author/<int:aid>')
 def delete_author(aid):
     author = Author.query.filter_by(id=aid).first()
-    db.session.delete(author)
     books = Book.query.filter_by(author_id=aid).all()
+    db.session.delete(author)
     for book in books:
         db.session.delete(book)
     db.session.commit()
-    return redirect(url_for('view_books'))
+    return redirect(url_for('view_authors'))
+
+
+@app.route('/view-categories', methods=['GET'])
+def view_categories():
+    categories = Category.query.all()
+    books = Book.query.all()
+    return render_template('view_categories.html', categories=categories, books=books)
