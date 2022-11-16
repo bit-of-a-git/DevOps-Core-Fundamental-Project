@@ -22,6 +22,7 @@ def add_author():
             author = Author(author_name = name)
             db.session.add(author)
             db.session.commit()
+            return redirect(url_for('add_book'))
         # This part may need to be changed, but the basic functionality works
         else:
             return f"That author already exists in the database."
@@ -94,6 +95,7 @@ def delete_book(bid):
 @app.route('/view-authors', methods=['GET'])
 def view_authors():
     authors = Author.query.all()
+    authors.sort(key=lambda x: x.author_name)
     return render_template('view_authors.html', authors=authors)
 
 
@@ -115,9 +117,16 @@ def update_author(aid):
 @app.route('/delete-author/<int:aid>')
 def delete_author(aid):
     author = Author.query.filter_by(id=aid).first()
-    db.session.delete(author)
     books = Book.query.filter_by(author_id=aid).all()
+    db.session.delete(author)
     for book in books:
         db.session.delete(book)
     db.session.commit()
     return redirect(url_for('view_authors'))
+
+
+@app.route('/view-categories', methods=['GET'])
+def view_categories():
+    categories = Category.query.all()
+    books = Book.query.all()
+    return render_template('view_categories.html', categories=categories, books=books)

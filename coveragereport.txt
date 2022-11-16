@@ -1,0 +1,21 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.0, pytest-7.2.0, pluggy-1.0.0
+rootdir: C:\Users\Work\Desktop\QA Training\DevOps-Core-Fundamental-Project
+plugins: cov-4.0.0
+collected 11 items
+
+application\tests\test_app.py ...........                                [100%]
+
+---------- coverage: platform win32, python 3.11.0-final-0 -----------
+Name                            Stmts   Miss  Cover
+---------------------------------------------------
+application\__init__.py            13      0   100%
+application\forms.py               19      0   100%
+application\models.py              15      0   100%
+application\routes.py             102      5    95%
+application\tests\test_app.py      67      0   100%
+---------------------------------------------------
+TOTAL                             216      5    98%
+
+
+============================= 11 passed in 1.71s ==============================

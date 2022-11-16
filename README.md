@@ -5,9 +5,7 @@ This library management app was built for an assignment for QA. It allows librar
 ## Objectives
 
 To create a CRUD application with utilisation of supporting tools, methodologies and technologies - including 
-Databases, Python, Flask, Testing, Git, Basic Linux, and Project Management.    
-
-<!--- Simple overview of use/purpose. -->
+Databases, Python, Flask, Testing, Git, Basic Linux, and Project Management.
 
 ## Scope
 
@@ -27,11 +25,29 @@ I researched and thought quite a bit about what I could base my project on. Even
 
 ## Relational database
 
-I thought about what relationships there could be between the entities involved with books, and I decided to start by modelling the author to book relationship, which is essentially one to many. These two tables satisfied the requirements for the MVP. I tested this using just Python, Flask, SQLite, and SQLAlchemy before I added any additional functionality or tables.
+I thought about what relationships there could be between the entities involved with books, and I decided to start by modelling the author to book relationship, which is essentially one to many. These two tables satisfied the requirements for the MVP. I tested this using just Python, Flask, SQLite, and SQLAlchemy before I added any additional functionality or tables. Next I added a categories table, which relates to books in a one to many relationship.
 
 ## App Design
 
+This Library Management App allows users to create, read, update, and delete books and authors. This is done through Author and Book tables, which have a one to many relationship. The ERD for this MVP is shown below.
+
+![MVP ERD](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/feature/ERD1.png) 
+
+Next I added a category table, which has a one to many relationship to books. The updated ERD is below.
+
+![Updated ERD](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/feature/ERD2.png) 
+
+In later iterations I may add other tables, for example a "branches" table so that this app can track various branches of a library. I may also add associative tables for many to many relationships. For example, two authors can collaborate on books, and various books can fit into several categories. For the scope of this project however, one to many relationships are suitable.
+
 ## Risk Assessment
+
+## Testing
+
+Currently, unit testing has been implemented. This tests functions within the app, testing the create, read, update, and delete functionalities. Coverage is currently at 98%, with routes.py having a coverage of 95%.
+
+![Coverage](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/feature/Pytest%20Coverage%20Report.png) 
+
+Integration testing will likely be incorporated at a later point.
 
 ## Version Control
 
@@ -39,56 +55,57 @@ I used Git for Version Control and hosted the project repository on Github. When
 
 ## The App
 
+Please click for fullsize screenshots.
+<p float="left">
+  <img src="/screenshots/1.png" width="300" />
+  <img src="/screenshots/2.png" width="300" /> 
+  <img src="/screenshots/3.png" width="300" />
+</p>
+The user is first brought to the homepage which links to various functionalities of the app.
+
+First an author is added, and the user is subsequently brought to the "Add a Book" page. From there they insert a title, select an author, and select a category for the book - this is prepopulated with create.py, and categories can be modified in the categories.py file found in the application folder.
+
+<p float="left">
+  <img src="/screenshots/4.png" width="300" />
+  <img src="/screenshots/5.png" width="300" /> 
+  <img src="/screenshots/6.png" width="300" />
+</p>
+
+After adding a book, the user remains on the "Add a Book" page where subsequent books can be added. Next they may navigate to "View Books", which lists all the books in the database by the author. By clicking "Delete", a book may be deleted from the database. Clicking "Update" will allow a user to change the title, category, and availability of the book. If the user does not input a title, the title will not be changed.
+
+<p float="left">
+  <img src="/screenshots/7.png" width="300" />
+  <img src="/screenshots/8.png" width="300" /> 
+  <img src="/screenshots/9.png" width="300" />
+</p>
+
+The book is now changed and is also marked as unavailable. Next, the user may navigate to "View Authors" where they are given the option to update or delete authors if needed. In this case, "Eoin Colfer" was deleted - this also deletes his books from the database, as can be seen in the next image.
+
+<img src="/screenshots/10.png" width="500" />
+
+Lastly, "View Categories" will list books by the category that they belong to.
+
+## Known Issues
+
+* After adding a new author, the proceeding page does not automatically select this author.
+* When updating a book, "categories" does not automatically select the previous category.
+
+## Future Work
+
+* I would like to add authentication when adding/updating/deleting items.
+* I would like to list categories only when the database has books for that category.
+
 ## Getting Started
+
+Git clone to a directory of your choice. Setting up a venv is recommended. Install the requirements using
+```
+pip install -r requirements.txt
+```
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+All listed in requirements.txt
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
-
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
-
-## Authors
-
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+Run create.py and after that app.py.
