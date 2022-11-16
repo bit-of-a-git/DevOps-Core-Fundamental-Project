@@ -1,0 +1,11 @@
+{% extends 'main.html' %}
+{% block body %}
+<h2> List of Categories</h2>
+{% for category in categories %}
+<h4>{{category.cat_name}}:</h4>
+{% for book in category.books %}
+{{book.book_title}} - {{book.author.author_name}}<br>
+{% endfor %}
+{% endfor %}
+<br>
+{% endblock body %}

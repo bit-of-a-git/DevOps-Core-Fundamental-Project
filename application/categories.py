@@ -1,1 +1,3 @@
-categories = {"1" : "Action/Adventure", "2" : "Biographies/Autobiographies", "3": "Classics", "4" : "Comic Book/Graphic Novel", "5" : "Detective, Mystery, & True Crime", "6" : "Essays", "7" : "History", "8" : "Horror", "9" : "Fantasy", "10" : "Fiction", "11" : "Poetry", "12" : "Science Fiction (Sci-Fi)", "13" : "Self-Help", "14" : "Short Stories", "15" : "Suspense/Thrillers"}
+# Add categories to this list or delete unneeded ones.
+
+categories = ["Action/Adventure", "Biographies/Autobiographies", "Classics", "Comic Book/Graphic Novel", "Detective, Mystery, & True Crime", "Essays", "Fantasy", "Fiction", "History", "Horror", "Poetry", "Science Fiction (Sci-Fi)", "Self-Help", "Short Stories", "Suspense/Thrillers"]
