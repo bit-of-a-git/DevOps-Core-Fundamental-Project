@@ -53,7 +53,7 @@ In later iterations I may add other tables, for example a "branches" table so th
 
 ## Risk Assessment
 
-This placeholder text will be updated with the Risk Assessment by the end of the day, 16/11/2022.
+![Risk Assessment](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/feature/Risk%20Assessment.png)
 
 ## Testing
 
