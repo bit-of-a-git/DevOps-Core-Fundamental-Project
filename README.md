@@ -31,7 +31,11 @@ I thought about what relationships there could be between the entities involved 
 
 This Library Management App allows users to create, read, update, and delete books and authors. This is done through Author and Book tables, which have a one to many relationship. The ERD for this MVP is shown below.
 
+![MVP ERD](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/feature/ERD1.png) 
+
 Next I added a category table, which has a one to many relationship to books. The updated ERD is below.
+
+![Updated ERD](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/feature/ERD2.png) 
 
 In later iterations I may add other tables, for example a "branches" table so that this app can track various branches of a library. I may also add associative tables for many to many relationships. For example, two authors can collaborate on books, and various books can fit into several categories. For the scope of this project however, one to many relationships are suitable.
 
@@ -40,6 +44,8 @@ In later iterations I may add other tables, for example a "branches" table so th
 ## Testing
 
 Currently, unit testing has been implemented. This tests functions within the app, testing the create, read, update, and delete functionalities. Coverage is currently at 98%, with routes.py having a coverage of 95%.
+
+![Coverage](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/feature/Pytest%20Coverage%20Report.png) 
 
 Integration testing will likely be incorporated at a later point.
 
