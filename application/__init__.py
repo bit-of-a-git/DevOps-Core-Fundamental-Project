@@ -1,11 +1,6 @@
-# Maybe delete request if unneeded
-from flask import Flask, request
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
-# maybe delete all below if unneeded - nearly certain it's fine
-from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, SelectField
-from wtforms.validators import DataRequired
 
 app = Flask(__name__)
 
