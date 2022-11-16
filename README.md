@@ -53,6 +53,8 @@ In later iterations I may add other tables, for example a "branches" table so th
 
 ## Risk Assessment
 
+![Risk Assessment](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/feature/Risk%20Assessment.png)
+
 ## Testing
 
 Currently, unit testing has been implemented. This tests functions within the app, testing the create, read, update, and delete functionalities. Coverage is currently at 98%, with routes.py having a coverage of 95%.
