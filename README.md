@@ -67,15 +67,17 @@ I used Git for Version Control and hosted the project repository on Github. When
 
 ## The App
 
-Please click for fullsize screenshots.
+(Please click for fullsize screenshots)
+
+The user is first brought to the homepage which links to various functionalities of the app. After an author is added, the user is subsequently brought to the "Add a Book" page. From there they insert a title, select an author, and select a category for the book - this is prepopulated with create.py, and categories can be modified in the categories.py file found in the application folder.
+
 <p float="left">
   <img src="/screenshots/1.png" width="300" />
   <img src="/screenshots/2.png" width="300" /> 
   <img src="/screenshots/3.png" width="300" />
 </p>
-The user is first brought to the homepage which links to various functionalities of the app.
 
-First an author is added, and the user is subsequently brought to the "Add a Book" page. From there they insert a title, select an author, and select a category for the book - this is prepopulated with create.py, and categories can be modified in the categories.py file found in the application folder.
+After adding a book, the user remains on the "Add a Book" page where subsequent books can be added. Next they may navigate to "View Books", which lists all the books in the database by the author. By clicking "Delete", a book may be deleted from the database. Clicking "Update" will allow a user to change the title, category, and availability of the book. If the user does not input a title, the title will not be changed.
 
 <p float="left">
   <img src="/screenshots/4.png" width="300" />
@@ -83,7 +85,7 @@ First an author is added, and the user is subsequently brought to the "Add a Boo
   <img src="/screenshots/6.png" width="300" />
 </p>
 
-After adding a book, the user remains on the "Add a Book" page where subsequent books can be added. Next they may navigate to "View Books", which lists all the books in the database by the author. By clicking "Delete", a book may be deleted from the database. Clicking "Update" will allow a user to change the title, category, and availability of the book. If the user does not input a title, the title will not be changed.
+The book is now changed and is also marked as unavailable. Next, the user may navigate to "View Authors" where they are given the option to update or delete authors if needed. In this case, "Eoin Colfer" was deleted - this also deletes his books from the database, as can be seen in the next image.
 
 <p float="left">
   <img src="/screenshots/7.png" width="300" />
@@ -91,11 +93,9 @@ After adding a book, the user remains on the "Add a Book" page where subsequent 
   <img src="/screenshots/9.png" width="300" />
 </p>
 
-The book is now changed and is also marked as unavailable. Next, the user may navigate to "View Authors" where they are given the option to update or delete authors if needed. In this case, "Eoin Colfer" was deleted - this also deletes his books from the database, as can be seen in the next image.
+Lastly, "View Categories" will list books by the category that they belong to.
 
 <img src="/screenshots/10.png" width="500" />
-
-Lastly, "View Categories" will list books by the category that they belong to.
 
 ## Known Issues
 
