@@ -53,6 +53,8 @@ In later iterations I may add other tables, for example a "branches" table so th
 
 ## Risk Assessment
 
+This placeholder text will be updated with the Risk Assessment by the end of the day, 16/11/2022.
+
 ## Testing
 
 Currently, unit testing has been implemented. This tests functions within the app, testing the create, read, update, and delete functionalities. Coverage is currently at 98%, with routes.py having a coverage of 95%.
