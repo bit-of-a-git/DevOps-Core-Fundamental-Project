@@ -1,7 +1,7 @@
 # Use Python 3.6 or later as a base image
 FROM python:latest
 # Copy contents into image
-COPY /application create.py requirements.txt ./
+COPY /application app.py create.py requirements.txt ./
 # Install pip dependencies from requirements
 RUN pip install -r requirements.txt
 # Set YOUR_NAME environment variable
