@@ -1,8 +1,0 @@
-{% extends 'main.html' %}
-{% block body %}
-<h2> List of Authors</h2>
-{% for author in authors %}
-{{author.author_name}} - <a href="{{ url_for('update_author', aid=author.id) }}"> Update </a> |<a href="{{ url_for('delete_author', aid=author.id) }}"> Delete </a><br>
-{% endfor %}
-<br>
-{% endblock body %}
