@@ -1,7 +1,10 @@
 from application import db, app
 from application.categories import categories
 from application.models import Category, User
+from flask_bcrypt import Bcrypt
 import os
+
+bcrypt = Bcrypt(app)
 
 with app.app_context():
     db.drop_all()
@@ -20,8 +23,10 @@ with app.app_context():
 
     if username and password:
         user = User(username=username)
+
+        hashed_password = bcrypt.generate_password_hash(password).decode("utf-8")
         # Set the password for the user (remember to hash it)
-        user.set_password(password)
+        user.password_hash = hashed_password
 
     # Add the user to the database
     db.session.add(user)

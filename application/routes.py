@@ -3,6 +3,7 @@ from application.forms import AddAuthor, AddBook, UpdateBook, UpdateAuthor, Logi
 from application.models import Author, Book, Category, User
 from flask import request, render_template, redirect, url_for, flash
 from flask_login import login_user, login_required, logout_user, current_user
+from flask_bcrypt import check_password_hash
 
 
 @app.route("/")
@@ -146,7 +147,7 @@ def login():
         username = request.form.get("username")
         password = request.form.get("password")
         user = User.query.filter_by(username=username).first()
-        if user and user.check_password(password):
+        if user and check_password_hash(user.password_hash, password):
             login_user(user)
             flash("Logged in successfully!", "success")
             return redirect(url_for("home"))
