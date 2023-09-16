@@ -143,7 +143,15 @@ def login():
         if user and user.check_password(password):
             login_user(user)
             flash("Logged in successfully!", "success")
-            return redirect(url_for("index"))
+            return redirect(url_for("home"))
         else:
             flash("Invalid username or password. Please try again.", "danger")
     return render_template("login.html", form=form)
+
+
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    flash("Logged out successfully!", "success")
+    return redirect(url_for("home"))
