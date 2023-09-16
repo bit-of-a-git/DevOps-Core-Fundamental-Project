@@ -1,7 +1,7 @@
 from application import app, db
 from application.forms import AddAuthor, AddBook, UpdateBook, UpdateAuthor, LoginForm
 from application.models import Author, Book, Category, User
-from flask import request, render_template, redirect, url_for, flash, session
+from flask import request, render_template, redirect, url_for, flash
 from flask_login import login_user, login_required, logout_user, current_user
 from flask_bcrypt import check_password_hash
 
@@ -9,11 +9,6 @@ from flask_bcrypt import check_password_hash
 @app.route("/")
 @app.route("/home")
 def home():
-    # If the user has just successfully logged in, this will flash a successful login message
-    if session.get("login_success"):
-        flash("Logged in successfully!", "success")
-        # Clear the flag from the session to prevent showing the message again
-        session.pop("login_success", None)
     return render_template("home.html")
 
 
@@ -154,8 +149,6 @@ def login():
         user = User.query.filter_by(username=username).first()
         if user and check_password_hash(user.password_hash, password):
             login_user(user)
-            # Setting a session flag to indicate a successful login on the next screen
-            session["login_success"] = True
             return redirect(url_for("home"))
         else:
             flash("Invalid username or password. Please try again.", "warning")
