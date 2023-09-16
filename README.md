@@ -29,11 +29,11 @@ I used a Trello Kanban board for project tracking, using MOSCOW prioritisation f
 
 Below you can see the initial state of the board.
 
-![1st Trello Board](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/feature/Trello%20Board2.png) 
+![1st Trello Board](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/main/images/Trello%20Board1.png) 
 
 This is a recent board, after the MVP was achieved.
 
-![2nd Trello Board](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/feature/Trello%20Board1.png) 
+![2nd Trello Board](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/main/images/Trello%20Board2.png) 
 
 ## Relational database
 
@@ -43,23 +43,23 @@ I thought about what relationships there could be between the entities involved 
 
 This Library Management App allows users to create, read, update, and delete books and authors. This is done through Author and Book tables, which have a one to many relationship. The ERD for this MVP is shown below.
 
-![MVP ERD](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/feature/ERD1.png) 
+![MVP ERD](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/main/images/ERD1.png) 
 
 Next I added a category table, which has a one to many relationship to books. The updated ERD is below.
 
-![Updated ERD](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/feature/ERD2.png) 
+![Updated ERD](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/main/images/ERD2.png) 
 
 In later iterations I may add other tables, for example a "branches" table so that this app can track various branches of a library. I may also add associative tables for many to many relationships. For example, two authors can collaborate on books, and various books can fit into several categories. For the scope of this project however, one to many relationships are suitable.
 
 ## Risk Assessment
 
-![Risk Assessment](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/feature/Risk%20Assessment.png)
+![Risk Assessment](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/main/images/Risk%20Assessment.png)
 
 ## Testing
 
 Currently, unit testing has been implemented. This tests functions within the app, testing the create, read, update, and delete functionalities. Coverage is currently at 98%, with routes.py having a coverage of 95%.
 
-![Coverage](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/feature/Pytest%20Coverage%20Report.png) 
+![Coverage](https://github.com/bit-of-a-git/DevOps-Core-Fundamental-Project/blob/main/images/Pytest%20Coverage%20Report.png) 
 
 Integration testing will likely be incorporated at a later point.
 
@@ -74,30 +74,30 @@ I used Git for Version Control and hosted the project repository on Github. When
 The user is first brought to the homepage which links to various functionalities of the app. After an author is added, the user is subsequently brought to the "Add a Book" page. From there they insert a title, select an author, and select a category for the book - this is prepopulated with create.py, and categories can be modified in the categories.py file found in the application folder.
 
 <p float="left">
-  <img src="/screenshots/1.png" width="300" />
-  <img src="/screenshots/2.png" width="300" /> 
-  <img src="/screenshots/3.png" width="300" />
+  <img src="/images/1.png" width="300" />
+  <img src="/images/2.png" width="300" /> 
+  <img src="/images/3.png" width="300" />
 </p>
 
 After adding a book, the user remains on the "Add a Book" page where subsequent books can be added. Next they may navigate to "View Books", which lists all the books in the database by the author. By clicking "Delete", a book may be deleted from the database. Clicking "Update" will allow a user to change the title, category, and availability of the book. If the user does not input a title, the title will not be changed.
 
 <p float="left">
-  <img src="/screenshots/4.png" width="300" />
-  <img src="/screenshots/5.png" width="300" /> 
-  <img src="/screenshots/6.png" width="300" />
+  <img src="/images/4.png" width="300" />
+  <img src="/images/5.png" width="300" /> 
+  <img src="/images/6.png" width="300" />
 </p>
 
 The book is now changed and is also marked as unavailable. Next, the user may navigate to "View Authors" where they are given the option to update or delete authors if needed. In this case, "Eoin Colfer" was deleted - this also deletes his books from the database, as can be seen in the next image.
 
 <p float="left">
-  <img src="/screenshots/7.png" width="300" />
-  <img src="/screenshots/8.png" width="300" /> 
-  <img src="/screenshots/9.png" width="300" />
+  <img src="/images/7.png" width="300" />
+  <img src="/images/8.png" width="300" /> 
+  <img src="/images/9.png" width="300" />
 </p>
 
 Lastly, "View Categories" will list books by the category that they belong to.
 
-<img src="/screenshots/10.png" width="500" />
+<img src="/images/10.png" width="500" />
 
 ## Known Issues
 
