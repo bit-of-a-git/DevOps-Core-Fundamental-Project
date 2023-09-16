@@ -2,6 +2,15 @@
 {% block body %}
 <h2> Add a New Author </h2>
 <br>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class="messages">
+      {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
 <div class='form'>
             <form method='POST' action=''>
                 {{ form.hidden_tag() }}
