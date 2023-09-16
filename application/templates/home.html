@@ -1,5 +1,10 @@
 {% extends 'main.html' %}
 {% block body %}
-<h4> Use the links above to add authors/books or view/update/delete items in our current inventory.</h4>
+{% if not current_user.is_authenticated %}
+<h4> Use the links above to view items in our current inventory. Librarians may also log in to modify our catalog.</h4>
+{% endif %}
+{% if current_user.is_authenticated %}
+<h4>Welcome! You may update and add to our catalog above.</h4>
+{% endif %}
 <br>
 {% endblock body %}

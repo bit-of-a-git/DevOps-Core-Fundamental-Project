@@ -2,7 +2,11 @@
 {% block body %}
 <h2> List of Authors</h2>
 {% for author in authors %}
-{{author.author_name}} - <a href="{{ url_for('update_author', aid=author.id) }}"> Update </a> |<a href="{{ url_for('delete_author', aid=author.id) }}"> Delete </a><br>
+{{author.author_name}}
+{% if current_user.is_authenticated %}
+ - <a href="{{ url_for('update_author', aid=author.id) }}"> Update </a> |<a href="{{ url_for('delete_author', aid=author.id) }}"> Delete </a>
+{% endif %}
+<br>
 {% endfor %}
 <br>
 {% endblock body %}
