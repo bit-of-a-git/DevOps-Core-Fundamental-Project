@@ -12,6 +12,7 @@ def home():
 
 
 @app.route("/add-author", methods=["GET", "POST"])
+@login_required
 def add_author():
     form = AddAuthor()
     if request.method == "POST":
@@ -31,6 +32,7 @@ def add_author():
 
 
 @app.route("/add-book", methods=["GET", "POST"])
+@login_required
 def add_book():
     form = AddBook()
     authors = Author.query.all()
@@ -64,6 +66,7 @@ def view_books():
 
 
 @app.route("/update-book/<int:bid>", methods=["GET", "POST"])
+@login_required
 def update_book(bid):
     form = UpdateBook()
     book = Book.query.filter_by(id=bid).first()
@@ -86,6 +89,7 @@ def update_book(bid):
 
 
 @app.route("/delete-book/<int:bid>")
+@login_required
 def delete_book(bid):
     book = Book.query.filter_by(id=bid).first()
     db.session.delete(book)
@@ -101,6 +105,7 @@ def view_authors():
 
 
 @app.route("/update-author/<int:aid>", methods=["GET", "POST"])
+@login_required
 def update_author(aid):
     form = UpdateAuthor()
     author = Author.query.filter_by(id=aid).first()
@@ -116,6 +121,7 @@ def update_author(aid):
 
 
 @app.route("/delete-author/<int:aid>")
+@login_required
 def delete_author(aid):
     author = Author.query.filter_by(id=aid).first()
     books = Book.query.filter_by(author_id=aid).all()
