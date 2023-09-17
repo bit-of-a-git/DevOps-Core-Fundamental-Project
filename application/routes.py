@@ -2,7 +2,7 @@ from application import app, db
 from application.forms import AddAuthor, AddBook, UpdateBook, UpdateAuthor, LoginForm
 from application.models import Author, Book, Category, User
 from flask import request, render_template, redirect, url_for, flash
-from flask_login import login_user, login_required, logout_user, current_user
+from flask_login import login_user, login_required, logout_user
 from flask_bcrypt import check_password_hash
 
 
