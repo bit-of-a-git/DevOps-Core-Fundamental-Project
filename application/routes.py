@@ -28,7 +28,7 @@ def add_author():
             return redirect(url_for("add_book"))
         # This part may need to be changed, but the basic functionality works
         else:
-            return f"That author already exists in the database."
+            flash("That author already exists in the database.", "warning")
     return render_template("add_author.html", form=form)
 
 
@@ -55,7 +55,7 @@ def add_book():
             db.session.commit()
         # This part may need to be changed, but the basic functionality works
         else:
-            return f"That book already exists in the database."
+            flash("That book already exists in the database.", "warning")
     return render_template("add_book.html", form=form)
 
 
@@ -149,10 +149,9 @@ def login():
         user = User.query.filter_by(username=username).first()
         if user and check_password_hash(user.password_hash, password):
             login_user(user)
-            flash("Logged in successfully!", "success")
             return redirect(url_for("home"))
         else:
-            flash("Invalid username or password. Please try again.", "danger")
+            flash("Invalid username or password. Please try again.", "warning")
     return render_template("login.html", form=form)
 
 
@@ -160,5 +159,4 @@ def login():
 @login_required
 def logout():
     logout_user()
-    flash("Logged out successfully!", "success")
     return redirect(url_for("home"))
