@@ -2,7 +2,7 @@ version: "3.7"
 services:
   flask-app:
     container_name: flask-app
-    build: .
+    build: ./library-app
     deploy:
       replicas: 1
     depends_on: 
