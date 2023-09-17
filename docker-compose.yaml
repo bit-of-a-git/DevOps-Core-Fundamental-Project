@@ -26,5 +26,19 @@ services:
     env_file:
       - .env
 
+  nginx:
+    container_name: nginx
+    image: nginx:1.25
+    deploy:
+      replicas: 1
+    depends_on: 
+    - flask-app
+    networks:
+      - library-net
+    ports:
+      - "80:80"
+    volumes:
+    - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+
 networks: 
   library-net:
