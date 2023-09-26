@@ -2,6 +2,31 @@
 
 This library management app was built for an assignment for QA. It allows librarians to add books and update/delete them when required. It also allows users to view what books are in the library.
 
+## Getting Started
+
+Git clone to a directory of your choice. Create a .env file and fill in the following variables:
+```
+SECRET_KEY=
+LIBRARIAN_USERNAME=
+LIBRARIAN_PASSWORD=
+MYSQL_ROOT_PASSWORD=
+MYSQL_DATABASE=
+MYSQL_USER=
+MYSQL_PASSWORD=
+```
+Use those values to create your SQLAlchemy string and add it to the bottom of the .env file.
+```
+SQLALCHEMY_DATABASE_URI=mysql+pymysql://MYSQL_USER:MYSQL_PASSWORD@mysql:3306/MYSQL_DATABASE
+```
+Lastly, run the following command to start.
+```
+docker compose build && docker compose up -d
+```
+Navigate to localhost in your browser to use the app.
+
+### Dependencies
+
+Listed in requirements.txt.
 ## Objectives
 
 To create a CRUD application with utilisation of supporting tools, methodologies and technologies - including 
@@ -108,28 +133,3 @@ Lastly, "View Categories" will list books by the category that they belong to.
 
 * I would like to add authentication when adding/updating/deleting items.
 * I would like to list categories only when the database has books for that category.
-
-## Getting Started
-
-Git clone to a directory of your choice. Create a .env file and fill in the following variables:
-```
-SECRET_KEY=
-LIBRARIAN_USERNAME=
-LIBRARIAN_PASSWORD=
-MYSQL_ROOT_PASSWORD=
-MYSQL_DATABASE=
-MYSQL_USER=
-MYSQL_PASSWORD=
-```
-Use those values to create your SQLAlchemy string and add it to the bottom of the .env file.
-```
-SQLALCHEMY_DATABASE_URI=mysql+pymysql://MYSQL_USER:MYSQL_PASSWORD@mysql:3306/MYSQL_DATABASE
-```
-
-### Dependencies
-
-All listed in requirements.txt
-
-### Executing program
-
-Run create.py and after that app.py.
