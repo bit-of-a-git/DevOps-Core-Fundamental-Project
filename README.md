@@ -111,9 +111,19 @@ Lastly, "View Categories" will list books by the category that they belong to.
 
 ## Getting Started
 
-Git clone to a directory of your choice. Setting up a venv is recommended. Install the requirements using
+Git clone to a directory of your choice. Create a .env file and fill in the following variables:
 ```
-pip install -r requirements.txt
+SECRET_KEY=
+LIBRARIAN_USERNAME=
+LIBRARIAN_PASSWORD=
+MYSQL_ROOT_PASSWORD=
+MYSQL_DATABASE=
+MYSQL_USER=
+MYSQL_PASSWORD=
+```
+Use those values to create your SQLAlchemy string and add it to the bottom of the .env file.
+```
+SQLALCHEMY_DATABASE_URI=mysql+pymysql://MYSQL_USER:MYSQL_PASSWORD@mysql:3306/MYSQL_DATABASE
 ```
 
 ### Dependencies
