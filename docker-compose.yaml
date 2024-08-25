@@ -1,4 +1,3 @@
-version: "3.7"
 services:
   flask-app:
     container_name: flask-app
@@ -6,7 +5,8 @@ services:
     deploy:
       replicas: 1
     depends_on: 
-    - db
+      db:
+        condition: service_healthy
     networks:
       - library-net
     ports:
@@ -16,7 +16,7 @@ services:
 
   db:
     container_name: mysql
-    image: mysql:5.7.8
+    image: mysql:8.0-debian
     deploy:
       replicas: 1
     networks:
@@ -25,10 +25,15 @@ services:
       - "3306:3306"
     env_file:
       - .env
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 10s
+      interval: 30s
+      retries: 10
 
   nginx:
     container_name: nginx
-    image: nginx:1.25
+    image: nginx:1.27.1
     deploy:
       replicas: 1
     depends_on: 
