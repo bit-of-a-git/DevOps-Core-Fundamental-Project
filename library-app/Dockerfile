@@ -1,4 +1,4 @@
-FROM python:3.9.19-bullseye
+FROM python:3.14.2-alpine
 
 WORKDIR /my-flask-app
 
